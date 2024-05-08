@@ -1,0 +1,7 @@
+cookies/*
+.vscode
+__pycache__
+trackers/__pycache__
+.env
+.idea/
+venv/
