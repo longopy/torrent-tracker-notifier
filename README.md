@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ibb.co/QrDtVss/OIG1-removebg-preview.png" alt="Torrent Tracker Notifier logo" width="100" height="100">
+  <img src="https://raw.githubusercontent.com/longopy/torrent-tracker-notifier/master/logo.png" alt="Torrent Tracker Notifier logo" width="100" height="100">
   <h1 align="center"> Torrent Tracker Notifier </h1>
   </p>
 
