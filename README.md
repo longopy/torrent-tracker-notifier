@@ -16,6 +16,7 @@ Obtains information from your trackers on a regular basis.
 | TRACKERS        	|                          	| To indicate the trackers you want to use. List of abbreviations in lowercase separated by commas. e.g FNP,TL,TLD,DVT,HDO                                                      	|
 | SEND_URL        	| true                     	| If you want to include a link to the tracker in the notification.                                                                                                   	|
 | CRON_EXPRESSION 	|                          	| Cron expression indicating the periocity of the execution. You can generate it using the [crontab.guru](https://crontab.guru/) service.                             	|
+| TZ 	|                          	| defines the time zone in which the cron will work. you can see the options available here: [Timezones](https://docs.diladele.com/docker/timezones.html).                         	|
 
 ## How to use
 1. Create a `.env` file with the environment variables in the root folder. You must set the environment variables listed above. You can use the file `.env.example` as a template.
