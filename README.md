@@ -16,3 +16,13 @@ Obtains information from your trackers on a regular basis.
 | TRACKERS        	|                          	| To indicate the trackers you want to use. List of abbreviations in lowercase separated by commas. e.g FNP,TL,TLD,DVT,HDO                                                      	|
 | SEND_URL        	| true                     	| If you want to include a link to the tracker in the notification.                                                                                                   	|
 | CRON_EXPRESSION 	|                          	| Cron expression indicating the periocity of the execution. You can generate it using the [crontab.guru](https://crontab.guru/) service.                             	|
+
+## How to use
+1. Create a `.env` file with the environment variables in the root folder. You must set the environment variables listed above. You can use the file `.env.example` as a template.
+2. Create a folder named `cookies` in the root folder and add a `.json` file for each tracker you want to use. The file name should be the abbreviation of the tracker in lower case. For example, `fnp.json`, `tl.json`, `tld.json`, `dvt.json`, `hdo.json`. 
+If the tracker was specified in the `TRACKERS` environment variable, it should have an associated cookie file in this folder.
+> You can extract the cookies using browser extensions like `EditThisCookie`: [Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg) or [Firefox](https://addons.mozilla.org/es/firefox/addon/edithiscookie/)
+3. Execute the container using docker-compose:
+```bash
+docker-compose up -d
+```

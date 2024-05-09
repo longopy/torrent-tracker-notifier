@@ -1,0 +1,12 @@
+version: '3'
+services:
+  tracker-notifier:
+    container_name: tracker-notifier
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+        - .:/opt/app
+    env_file:
+      - .env
+    command: python -u main.py

@@ -37,6 +37,7 @@ def process_trackers():
                                     print(f"ERROR! \n{e}")
     print("Finished processing trackers.")
 
+
 def calculate_next_run_time():
     now = datetime.now()
     cron_expression = os.environ.get("CRON_EXPRESSION", "0 12 * * *")
@@ -59,6 +60,7 @@ def main():
             time_diff = next_run_time - datetime.now()
             print(f"Sleeping for {time_diff}")
             time.sleep(time_diff.total_seconds())
+
 
 if __name__ == '__main__':
    main()
