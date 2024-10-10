@@ -5,7 +5,7 @@ from datetime import datetime
 
 from croniter import croniter
 
-from app.utils import get_trackers_selected
+from utils import get_trackers_selected
 
 
 def process_trackers():

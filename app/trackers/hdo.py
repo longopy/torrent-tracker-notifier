@@ -3,7 +3,7 @@ import re
 from bs4 import BeautifulSoup
 import requests
 from trackers.tracker import Tracker
-from app.utils import check_ratio
+from utils import check_ratio
 
 
 class HDOTracker(Tracker):
