@@ -3,5 +3,6 @@ cookies/*
 __pycache__
 trackers/__pycache__
 .env
+.venv
 .idea/
 venv/

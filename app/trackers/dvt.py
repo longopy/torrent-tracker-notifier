@@ -3,7 +3,7 @@ import unicodedata
 from bs4 import BeautifulSoup
 import requests
 from trackers.tracker import Tracker
-from utils import check_ratio
+from app.utils import check_ratio
 
 
 class DVTTracker(Tracker):
