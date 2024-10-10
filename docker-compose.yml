@@ -1,7 +1,7 @@
 services:
   tracker-notifier:
-    image: ghcr.io/longopy/torrent-tracker-notifier:latest
     container_name: tracker-notifier
+    image: ghcr.io/longopy/torrent-tracker-notifier:latest
     environment:
       - NOTIFY_TITLE=Torrent Tracker Notifier
       - NOTIFY=tgram://<BOT_TOKEN>/<CHAT_ID>
