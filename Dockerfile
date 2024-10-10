@@ -1,5 +1,7 @@
 FROM python:3.11-alpine
 
+RUN apk add --no-cache bash curl dcron
+
 COPY app //opt/app/
 WORKDIR /opt/app/
 
