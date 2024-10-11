@@ -27,7 +27,23 @@ Obtains information from your trackers on a regular basis.
 
 ## How to use
 
-1. Create a `.env` file with the environment variables in the root folder. You must set the environment variables listed above. You can use the file `.env.example` as a template.
+1. Create a file called `docker-compose.yml` in a folder, and set the environment variables.
+```
+services:
+  tracker-notifier:
+    image: ghcr.io/longopy/torrent-tracker-notifier:latest
+    container_name: tracker-notifier
+    environment:
+      - NOTIFY_TITLE=Torrent Tracker Notifier
+      - NOTIFY=tgram://<BOT_TOKEN>/<CHAT_ID>
+      - USERNAME=<USERNAME>
+      - TRACKERS=FNP,TL,TLD,DVT,HDO
+      - SEND_URL=true
+      - CRON_EXPRESSION=0 12 */2 * *
+      - TZ=Europe/Madrid
+    volumes:
+        - ./cookies:/opt/app/cookies
+```
 2. Create a folder named `cookies` in the root folder and add a `.json` file for each tracker you want to use. The file name should be the abbreviation of the tracker in lower case. For example, `fnp.json`, `tl.json`, `tld.json`, `dvt.json`, `hdo.json`.
    If the tracker was specified in the `TRACKERS` environment variable, it should have an associated cookie file in this folder.
    > You can extract the cookies using browser extensions like `EditThisCookie`: [Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg) or [Firefox](https://addons.mozilla.org/es/firefox/addon/edithiscookie/)
@@ -35,6 +51,17 @@ Obtains information from your trackers on a regular basis.
 
 ```bash
 docker-compose up -d
+```
+
+Also you can use the environment variables from an file `.env`, modifying the docker-compose.yml:
+```
+services:
+  tracker-notifier:
+    image: ghcr.io/longopy/torrent-tracker-notifier:latest
+    container_name: tracker-notifier
+    volumes:
+        - ./cookies:/opt/app/cookies
+    env_file: ./.env
 ```
 
 ## Collaborators

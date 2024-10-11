@@ -11,4 +11,4 @@ services:
       - CRON_EXPRESSION=0 12 */2 * *
       - TZ=Europe/Madrid
     volumes:
-        - cookies:/opt/app/cookies
+        - ./cookies:/opt/app/cookies
