@@ -48,7 +48,14 @@ Special thanks to all the developers who have contributed to Torrent Tracker Not
             <img src='https://github.com/acallejp97.png' width='92px;' style='border-radius: 99999px;'>
         </a>
         <br>
-        <a href='https://twitter.com/acallejp97'>acallejp97</a>
+        <a href='https://github.com/acallejp97'>acallejp97</a>
+    </td>
+     <td id='longopy'>
+        <a href='https://github.com/longopy'>
+            <img src='https://github.com/longopy.png' width='92px;' style='border-radius: 99999px;'>
+        </a>
+        <br>
+        <a href='https://github.com/longopy'>longopy</a>
     </td>
     </tr>
 </table>
