@@ -36,3 +36,19 @@ Obtains information from your trackers on a regular basis.
 ```bash
 docker-compose up -d
 ```
+
+## Collaborators
+
+Special thanks to all the developers who have contributed to Torrent Tracker Notifier
+
+<table id='collaborators'>
+<tr align='center'>
+    <td id='acallejp97'>
+        <a href='https://github.com/acallejp97'>
+            <img src='https://github.com/acallejp97.png' width='92px;' style='border-radius: 99999px;'>
+        </a>
+        <br>
+        <a href='https://twitter.com/acallejp97'>acallejp97</a>
+    </td>
+    </tr>
+</table>
