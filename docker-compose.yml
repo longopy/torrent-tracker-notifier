@@ -1,12 +1,14 @@
-version: '3'
 services:
   tracker-notifier:
+    image: ghcr.io/longopy/torrent-tracker-notifier:latest
     container_name: tracker-notifier
-    build:
-      context: .
-      dockerfile: Dockerfile
+    environment:
+      - NOTIFY_TITLE=Torrent Tracker Notifier
+      - NOTIFY=tgram://<BOT_TOKEN>/<CHAT_ID>
+      - USERNAME=<USERNAME>
+      - TRACKERS=FNP,TL,TLD,DVT,HDO
+      - SEND_URL=true
+      - CRON_EXPRESSION=0 12 */2 * *
+      - TZ=Europe/Madrid
     volumes:
-        - .:/opt/app
-    env_file:
-      - .env
-    command: python -u main.py
+        - cookies:/opt/app/cookies

@@ -1,7 +1,6 @@
 import importlib
 import inspect
 import os
-import time
 from datetime import datetime
 
 from croniter import croniter
@@ -49,17 +48,9 @@ def main():
     print("Torrent Tracker Notifier")
     next_run_time = calculate_next_run_time()
     print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    process_trackers()
+    next_run_time = calculate_next_run_time()
     print(f"Next run time: {next_run_time}")
-    while True:
-        if datetime.now() >= next_run_time:
-            process_trackers()
-            next_run_time = calculate_next_run_time()
-            print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-            print(f"Next run time: {next_run_time}")
-        else:
-            time_diff = next_run_time - datetime.now()
-            print(f"Sleeping for {time_diff}")
-            time.sleep(time_diff.total_seconds())
 
 
 if __name__ == '__main__':
