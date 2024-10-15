@@ -46,7 +46,7 @@ services:
 ```
 2. Create a folder named `cookies` in the root folder and add a `.json` file for each tracker you want to use. The file name should be the abbreviation of the tracker in lower case. For example, `fnp.json`, `tl.json`, `tld.json`, `dvt.json`, `hdo.json`.
    If the tracker was specified in the `TRACKERS` environment variable, it should have an associated cookie file in this folder.
-   > You can extract the cookies using browser extensions like `EditThisCookie`: [Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg) or [Firefox](https://addons.mozilla.org/es/firefox/addon/edithiscookie/)
+   > You can extract the cookies using browser extensions like [**Cookie-Editor**](https://cookie-editor.com/).
 3. Execute the container using docker-compose:
 
 ```bash
