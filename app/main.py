@@ -11,7 +11,10 @@ from utils import get_trackers_selected
 def process_trackers():
     print("Processing trackers...")
     print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    trackers_dir = "trackers"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    trackers_dir = os.path.join(current_dir, 'trackers')
+    print(trackers_dir)
+    exit()
     trackers_selected = get_trackers_selected()
     if len(trackers_selected) == 0:
         print("No trackers selected. Exiting...")
