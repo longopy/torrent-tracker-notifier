@@ -13,8 +13,6 @@ def process_trackers():
     print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     current_dir = os.path.dirname(os.path.abspath(__file__))
     trackers_dir = os.path.join(current_dir, 'trackers')
-    print(trackers_dir)
-    exit()
     trackers_selected = get_trackers_selected()
     if len(trackers_selected) == 0:
         print("No trackers selected. Exiting...")
