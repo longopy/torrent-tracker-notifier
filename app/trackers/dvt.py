@@ -1,9 +1,8 @@
-import re
-import unicodedata
-from bs4 import BeautifulSoup
 import requests
-from trackers.tracker import Tracker
+from bs4 import BeautifulSoup
 from utils import check_ratio
+
+from trackers.tracker import Tracker
 
 
 class DVTTracker(Tracker):
@@ -17,16 +16,14 @@ class DVTTracker(Tracker):
         url = "https://divteam.com/index.php?page=faq"
         response = requests.get(url, self.cookies)
         if response.status_code != 200:
-            raise ValueError(
-                f"Failed to fetch info from {self.name} tracker. Status code: {response.status_code}"
-            )
+            raise ValueError(f"Failed to fetch info from {self.name} tracker. Status code: {response.status_code}")
         soup = BeautifulSoup(response.text, "html.parser")
         trs = soup.findAll("tr")
         min_ratio_container = [tr for tr in trs if "¿Cual es el ratio minimo?" in tr.text][0]
-        min_ratio = float(min_ratio_container.find('font').text.strip().split(' ')[0])
+        min_ratio = float(min_ratio_container.find("font").text.strip().split(" ")[0])
         min_seedtime_container = [tr for tr in trs if "¿Hay Hit & Run?" in tr.text][0]
-        min_seedtime = min_seedtime_container.findAll('font')[1].text.strip()
-        min_seedtime = min_seedtime.split(' ')[-1]
+        min_seedtime = min_seedtime_container.findAll("font")[1].text.strip()
+        min_seedtime = min_seedtime.split(" ")[-1]
         min_seedtime = f"Recomendable >= {min_seedtime}"
         return {
             "min_ratio": min_ratio,
@@ -38,12 +35,10 @@ class DVTTracker(Tracker):
         url = f"https://divteam.com/index.php?page=userdetails&id={uuid}"
         response = requests.get(url, cookies=self.cookies)
         if response.status_code != 200:
-            raise ValueError(
-                f"Failed to fetch data from {self.name} tracker. Status code: {response.status_code}"
-            )
+            raise ValueError(f"Failed to fetch data from {self.name} tracker. Status code: {response.status_code}")
         soup = BeautifulSoup(response.text, "html.parser")
         list_group = soup.find("ul", class_="list-group")
-        items = list_group.find_all('li', class_='bot-flex')[1:]
+        items = list_group.find_all("li", class_="bot-flex")[1:]
         data = {}
         for item in items:
             key = item.find("strong").text.strip()
@@ -53,7 +48,10 @@ class DVTTracker(Tracker):
             operator = check_ratio(data["Ratio"], self.info["min_ratio"])
             data["Ratio"] = f"{data['Ratio']} {operator} {self.info['min_ratio']}"
         data["Min Seedtime"] = self.info["min_seedtime"]
-        data['Hit and Run'] = "No tiene"
+        data["Hit and Run"] = "No tiene"
         if self._get_url_flag():
             data["URL"] = url
+        # TODO: No access to divteam to configure URL
+        # if self.show_downloads:
+        #   data["Downloads"] = self.get_associated_torrent_list(f"{url}/active?seeding=include&perPage=100")
         return data

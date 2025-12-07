@@ -1,4 +1,4 @@
-cookies/*
+**/cookies/*
 .vscode
 __pycache__
 trackers/__pycache__
