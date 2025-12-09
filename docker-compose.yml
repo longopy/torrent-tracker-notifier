@@ -7,6 +7,7 @@ services:
       - NOTIFY=tgram://<BOT_TOKEN>/<CHAT_ID>
       - USERNAME=<USERNAME>
       - TRACKERS=FNP,TL,TLD,DVT,HDO
+      - INCLUDE_DOWNLOADING_LIST=false
       - SEND_URL=true
       - CRON_EXPRESSION=0 12 */2 * *
       - TZ=Europe/Madrid

@@ -45,7 +45,6 @@ def calculate_next_run_time():
 
 def main():
     print("Torrent Tracker Notifier")
-    next_run_time = calculate_next_run_time()
     print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     process_trackers()
     next_run_time = calculate_next_run_time()
