@@ -43,13 +43,33 @@ class Tracker(abc.ABC):
 
     def _get_notify(self):
         notify = os.environ.get("NOTIFY")
-        return os.environ.get(f"{self.abbr}_NOTIFY", notify)
+        notify = os.environ.get(f"{self.abbr}_NOTIFY", notify)
+        if not notify:
+            return ""
+        return notify
 
     def _send_data(self, data: dict):
+        notify_string = self._get_notify()
+        if not notify_string:
+            # No notifications configured, print to log instead
+            msg = f"[Tracker: {self.name} ({self.abbr})]\n"
+            for key, value in data.items():
+                msg += key + ": " + value + "\n"
+            print(msg)
+            return
+
         app = apprise.Apprise()
-        notifications = self._get_notify().split(",")
+        notifications = notify_string.split(",")
+        # Filter out empty strings that might result from splitting
+        notifications = [n.strip() for n in notifications if n.strip()]
         if not notifications:
-            raise ValueError("No notifications set")
+            # No valid notifications configured, print to log instead
+            msg = f"[Tracker: {self.name} ({self.abbr})]\n"
+            for key, value in data.items():
+                msg += key + ": " + value + "\n"
+            print(msg)
+            return
+
         for notification in notifications:
             app.add(notification)
         msg = f"[Tracker: {self.name} ({self.abbr})]\n"
